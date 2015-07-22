@@ -3,9 +3,9 @@ require 'Bike_Class'
 
 describe DockingStation do
 
-	it{is_expected.to respond_to(:release_bike)}
+	#it{is_expected.to respond_to(:release_bike)} #Can docking station release a bike?
 	
-	it "releases working bike" do
+	it "releases working bike" do #releases a bike that is working 
 		subject.dock Bike.new
 		bike = subject.release_bike
 		expect(bike).to be_working
