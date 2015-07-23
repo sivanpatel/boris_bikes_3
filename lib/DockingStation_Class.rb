@@ -4,18 +4,25 @@ class DockingStation
 	attr_reader :capacity  # => nil
 
 	def initialize(capacity=20)
-		@bikes =[]                  # => []
+		@bikes =[]
+		@broken_bikes =[]                  # => []
 		@capacity = capacity        # => 20
 	end
 
 	def dock (bike)
 		fail 'Docking Station full' if full?
-		bikes << bike
+		if bike.broken == true
+			broken_bikes << bike
+		else
+			bikes << bike
+		end
+
 	end
 
-	def release_bike
+	def release_bike 
 		fail "No bikes available" if empty?
 		bikes.pop
+
 	end
 
 	def get_capacity
@@ -24,6 +31,7 @@ class DockingStation
 	private           # => DockingStation
 
 	attr_reader :bikes  # => nil
+	attr_reader :broken_bikes
 
 	def full?
 		bikes.count >= @capacity
@@ -32,9 +40,6 @@ class DockingStation
 	def empty?
 		bikes.empty?
 	end
-
-
-
 end
 
 puts DockingStation.new.get_capacity  # => nil
