@@ -1,12 +1,11 @@
-require_relative 'Bike_Class'
+require_relative 'Bike_Class'  # => true
 
 class DockingStation
-	attr_reader :capacity
-	DEFAULT_CAPACITY = 20
+	attr_reader :capacity  # => nil
 
-	def initialize
-		@bikes =[]
-		@capacity = DEFAULT_CAPACITY
+	def initialize(capacity=20)
+		@bikes =[]                  # => []
+		@capacity = capacity        # => 20
 	end
 
 	def dock (bike)
@@ -19,9 +18,12 @@ class DockingStation
 		bikes.pop
 	end
 
-	private
+	def get_capacity
+		@capacity        # => 20
+	end
+	private           # => DockingStation
 
-	attr_reader :bikes
+	attr_reader :bikes  # => nil
 
 	def full?
 		bikes.count >= @capacity
@@ -32,4 +34,9 @@ class DockingStation
 	end
 
 
+
 end
+
+puts DockingStation.new.get_capacity  # => nil
+
+# >> 20

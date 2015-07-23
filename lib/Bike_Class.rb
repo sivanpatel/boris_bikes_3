@@ -5,5 +5,5 @@ class Bike
 		true
 	end
 
-	
+
 end
