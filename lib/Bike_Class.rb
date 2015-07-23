@@ -2,7 +2,6 @@
 class Bike
 	attr_accessor :bike
 	DEFAULT_WORKING = true
-	DEFAULT_REPORT = false
 	attr_accessor :working
 
 	def initialize
