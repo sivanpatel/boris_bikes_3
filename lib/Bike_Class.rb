@@ -1,25 +1,22 @@
 
 class Bike
 	attr_accessor :bike
+	DEFAULT_WORKING = true
+	DEFAULT_REPORT = false
+	attr_accessor :working
 
 	def initialize
 		@bike = bike
-	end
-	def working?
-		true
+		@working = DEFAULT_WORKING
 	end
 
 	def broken
-		if report_broken == 'true'
+		if @working == false
 			true
 		else
 			false
 		end
 	end
-
-   def report_broken
-   		gets.chomp
-   end
 
 
 end
